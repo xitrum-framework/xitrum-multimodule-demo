@@ -4,3 +4,5 @@ The project is devided into 2 parts:
 
 * module1, see module1/README.rst
 * app, see app/README.rst
+
+For experiment, based on module1, you can create module2, module3 etc. yourself.

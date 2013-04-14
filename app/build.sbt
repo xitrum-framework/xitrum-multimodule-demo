@@ -18,7 +18,7 @@ scalacOptions ++= Seq(
 // and it takes several hours to sync from Sonatype to Maven Central
 resolvers += "SonatypeReleases" at "http://oss.sonatype.org/content/repositories/releases/"
 
-libraryDependencies += "tv.cntt" %% "xitrum" % "1.22"
+libraryDependencies += "tv.cntt" %% "xitrum" % "2.0"
 
 libraryDependencies += "tv.cntt" %% "xitrum-modularized-demo-module1" % "1.0-SNAPSHOT"
 
@@ -41,7 +41,7 @@ scalacOptions += "-P:continuations:enable"
 
 // Template engine for Xitrum --------------------------------------------------
 
-libraryDependencies += "tv.cntt" %% "xitrum-scalate" % "1.0"
+libraryDependencies += "tv.cntt" %% "xitrum-scalate" % "1.1"
 
 // Precompile Scalate
 seq(scalateSettings:_*)
@@ -49,7 +49,7 @@ seq(scalateSettings:_*)
 scalateTemplateConfig in Compile := Seq(TemplateConfig(
   file("src") / "main" / "scalate",  // See config/scalate.conf
   Seq(),
-  Seq(Binding("helper", "xitrum.Controller", true))
+  Seq(Binding("helper", "xitrum.Action", true))
 ))
 
 // Put config directory in classpath for easier development --------------------

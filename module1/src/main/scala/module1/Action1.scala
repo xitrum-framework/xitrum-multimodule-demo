@@ -6,7 +6,7 @@ import xitrum.annotation.GET
 @GET("module1")
 class Action1 extends Action {
   def execute() {
-    val url = urlForResource("module1/module1.txt")
+    val url = resourceUrl("module1/module1.txt")
     respondText(url)
   }
 }

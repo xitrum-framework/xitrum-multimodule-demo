@@ -2,7 +2,29 @@ See `discussion <http://groups.google.com/group/xitrum-framework/browse_thread/t
 
 The project is devided into 2 parts:
 
-* module1, see module1/README.rst
-* app, see app/README.rst
+* module1
+* app, depends on module1
 
-For experiment, based on module1, you can create module2, module3 etc. yourself.
+When you run app, routes in module1 will be collected
+(see src/main/scala/module1/Controller1.scala):
+
+::
+
+  GET /module1
+
+You can also access module1.txt in module1
+(see src/main/resources/public/module1/module1.txt):
+
+::
+
+  GET /resources/public/module1/module1.txt
+
+If you add or remove routes in module1, remember to remove routes.cache in app.
+
+Run:
+
+::
+
+  ../sbt/sbt
+  project xitrum-multimodule-demo-app
+  run

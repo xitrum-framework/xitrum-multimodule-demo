@@ -1,1 +1,6 @@
-.DS_Store
+.*
+log
+project/project
+project/target
+routes.cache
+target

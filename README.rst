@@ -1,5 +1,11 @@
 See `discussion <http://groups.google.com/group/xitrum-framework/browse_thread/thread/7588995934854a56>`_.
 
+Run:
+
+::
+
+  sbt/sbt "project xitrum-multimodule-demo-app" run
+
 The project is devided into 2 parts:
 
 * module1
@@ -20,11 +26,3 @@ You can also access module1.txt in module1
   GET /resources/public/module1/module1.txt
 
 If you add or remove routes in module1, remember to remove routes.cache in app.
-
-Run:
-
-::
-
-  ../sbt/sbt
-  project xitrum-multimodule-demo-app
-  run

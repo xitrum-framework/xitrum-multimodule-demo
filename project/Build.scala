@@ -16,14 +16,13 @@ object XitrumMultimoduleDemoBuild extends Build {
 
     //------------------------------------------------------------------------------
 
-    // Most Scala projects are published to Sonatype, but Sonatype is not default
-    // and it takes several hours to sync from Sonatype to Maven Central
-    resolvers += "SonatypeReleases" at "http://oss.sonatype.org/content/repositories/releases/",
-
-    libraryDependencies += "tv.cntt" %% "xitrum" % "3.13",
+    libraryDependencies += "tv.cntt" %% "xitrum" % "3.14",
 
     // Xitrum uses SLF4J, an implementation of SLF4J is needed
     libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.1.2",
+
+    // For writing condition in logback.xml
+    libraryDependencies += "org.codehaus.janino" % "janino" % "2.6.1",
 
     // xgettext i18n translation key string extractor is a compiler plugin ---------
 

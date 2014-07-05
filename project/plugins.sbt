@@ -5,4 +5,4 @@ addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "2.5.0")
 addSbtPlugin("com.github.mpeltonen" % "sbt-idea" % "1.6.0")
 
 // Run sbt xitrum-package to prepare for deploying to production environment
-addSbtPlugin("tv.cntt" % "xitrum-package" % "1.6")
+addSbtPlugin("tv.cntt" % "xitrum-package" % "1.8")

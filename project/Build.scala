@@ -16,13 +16,13 @@ object XitrumMultimoduleDemoBuild extends Build {
 
     //------------------------------------------------------------------------------
 
-    libraryDependencies += "tv.cntt" %% "xitrum" % "3.15",
+    libraryDependencies += "tv.cntt" %% "xitrum" % "3.16",
 
     // Xitrum uses SLF4J, an implementation of SLF4J is needed
     libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.1.2",
 
     // For writing condition in logback.xml
-    libraryDependencies += "org.codehaus.janino" % "janino" % "2.6.1",
+    libraryDependencies += "org.codehaus.janino" % "janino" % "2.7.4",
 
     // xgettext i18n translation key string extractor is a compiler plugin ---------
 

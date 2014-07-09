@@ -23,6 +23,6 @@ You can also access module1.txt in module1
 
 ::
 
-  GET /resources/public/module1/module1.txt
+  GET /webjars/module1/1.0-SNAPSHOT/module1.txt
 
 If you add or remove routes in module1, remember to remove routes.cache in app.

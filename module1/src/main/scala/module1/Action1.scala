@@ -7,6 +7,11 @@ import xitrum.annotation.GET
 class Action1 extends Action {
   def execute() {
     val url = webJarsUrl("module1/1.0-SNAPSHOT/module1.txt")
-    respondText(url)
+    respondHtml(
+      <body>
+        <p>This is an action in module1.</p>
+        <p><a href={url}>Link to a resource file in module1.</a></p>
+      </body>
+    )
   }
 }

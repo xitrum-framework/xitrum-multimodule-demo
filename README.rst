@@ -4,7 +4,7 @@ Run:
 
 ::
 
-  sbt/sbt "project xitrum-multimodule-demo-app" run
+  sbt/sbt "project app" run
 
 The project is devided into 2 parts:
 
@@ -16,6 +16,7 @@ When you run app, routes in module1 will be collected
 
 ::
 
+  GET /
   GET /module1
 
 You can also access module1.txt in module1

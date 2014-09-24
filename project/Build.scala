@@ -1,6 +1,9 @@
 import sbt._
 import Keys._
 
+import com.mojolly.scalate.ScalatePlugin._
+import ScalateKeys._
+
 object XitrumMultimoduleDemoBuild extends Build {
   val sharedSettings = Project.defaultSettings ++ Seq(
     organization := "tv.cntt",
@@ -41,21 +44,32 @@ object XitrumMultimoduleDemoBuild extends Build {
     unmanagedClasspath in Runtime <+= (baseDirectory) map { bd => Attributed.blank(bd / "config") }
   )
 
+  lazy val templateSettings = scalateSettings ++ Seq(
+    // Precompile Scalate templates
+    ScalateKeys.scalateTemplateConfig in Compile := Seq(TemplateConfig(
+      baseDirectory.value / "src" / "main" / "scalate",
+      Seq.empty,
+      Seq(Binding("helper", "xitrum.Action", true))
+    )),
+
+    libraryDependencies += "tv.cntt" %% "xitrum-scalate" % "2.2"
+  )
+
   override lazy val settings = super.settings ++ XitrumPackage.skip
 
   lazy val module1 = Project(
-    id = "xitrum-multimodule-demo-module1",
+    id = "module1",
     base = file("module1"),
     settings = sharedSettings ++ Seq(
-      name := "xitrum-multimodule-demo-module1"
+      name := "module1"
     ) ++ XitrumPackage.skip
   )
 
   lazy val app = Project(
-    id = "xitrum-multimodule-demo-app",
+    id = "app",
     base = file("app"),
-    settings = sharedSettings ++ Seq(
-      name := "xitrum-multimodule-demo-app"
+    settings = sharedSettings ++ templateSettings ++ Seq(
+      name := "app"
     ) ++ XitrumPackage.copy("config", "public", "script")
   ).dependsOn(module1)
 }

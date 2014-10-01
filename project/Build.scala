@@ -31,7 +31,7 @@ object XitrumMultimoduleDemoBuild extends Build {
 
     autoCompilerPlugins := true,
 
-    addCompilerPlugin("tv.cntt" %% "xgettext" % "1.1"),
+    addCompilerPlugin("tv.cntt" %% "xgettext" % "1.2"),
 
     scalacOptions += "-P:xgettext:xitrum.I18n",
 

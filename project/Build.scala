@@ -10,7 +10,7 @@ object XitrumMultimoduleDemoBuild extends Build {
 
     version      := "1.0-SNAPSHOT",
 
-    scalaVersion := "2.11.2",
+    scalaVersion := "2.11.4",
 
     scalacOptions ++= Seq("-deprecation", "-feature", "-unchecked"),
 
@@ -19,19 +19,19 @@ object XitrumMultimoduleDemoBuild extends Build {
 
     //------------------------------------------------------------------------------
 
-    libraryDependencies += "tv.cntt" %% "xitrum" % "3.18",
+    libraryDependencies += "tv.cntt" %% "xitrum" % "3.19",
 
     // Xitrum uses SLF4J, an implementation of SLF4J is needed
     libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.1.2",
 
     // For writing condition in logback.xml
-    libraryDependencies += "org.codehaus.janino" % "janino" % "2.7.5",
+    libraryDependencies += "org.codehaus.janino" % "janino" % "2.7.6",
 
     // xgettext i18n translation key string extractor is a compiler plugin ---------
 
     autoCompilerPlugins := true,
 
-    addCompilerPlugin("tv.cntt" %% "xgettext" % "1.2"),
+    addCompilerPlugin("tv.cntt" %% "xgettext" % "1.3"),
 
     scalacOptions += "-P:xgettext:xitrum.I18n",
 
@@ -52,7 +52,7 @@ object XitrumMultimoduleDemoBuild extends Build {
       Seq(Binding("helper", "xitrum.Action", true))
     )),
 
-    libraryDependencies += "tv.cntt" %% "xitrum-scalate" % "2.2"
+    libraryDependencies += "tv.cntt" %% "xitrum-scalate" % "2.3"
   )
 
   override lazy val settings = super.settings ++ XitrumPackage.skip

@@ -10,7 +10,7 @@ object XitrumMultimoduleDemoBuild extends Build {
 
     version      := "1.0-SNAPSHOT",
 
-    scalaVersion := "2.11.4",
+    scalaVersion := "2.11.5",
 
     scalacOptions ++= Seq("-deprecation", "-feature", "-unchecked"),
 
@@ -19,7 +19,7 @@ object XitrumMultimoduleDemoBuild extends Build {
 
     //------------------------------------------------------------------------------
 
-    libraryDependencies += "tv.cntt" %% "xitrum" % "3.21",
+    libraryDependencies += "tv.cntt" %% "xitrum" % "3.22",
 
     // Xitrum uses SLF4J, an implementation of SLF4J is needed
     libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.1.2",

@@ -8,4 +8,4 @@ addSbtPlugin("com.github.mpeltonen" % "sbt-idea" % "1.6.0")
 addSbtPlugin("com.mojolly.scalate" % "xsbt-scalate-generator" % "0.5.0")
 
 // Run sbt xitrum-package to prepare for deploying to production environment
-addSbtPlugin("tv.cntt" % "xitrum-package" % "1.8")
+addSbtPlugin("tv.cntt" % "xitrum-package" % "1.9")

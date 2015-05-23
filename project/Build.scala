@@ -17,10 +17,10 @@ object XitrumMultimoduleDemoBuild extends Build {
 
     //--------------------------------------------------------------------------
 
-    libraryDependencies += "tv.cntt" %% "xitrum" % "3.23",
+    libraryDependencies += "tv.cntt" %% "xitrum" % "3.24.0",
 
     // Xitrum uses SLF4J, an implementation of SLF4J is needed
-    libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.1.2",
+    libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.1.3",
 
     // For writing condition in logback.xml
     libraryDependencies += "org.codehaus.janino" % "janino" % "2.7.8",
@@ -39,7 +39,7 @@ object XitrumMultimoduleDemoBuild extends Build {
       Seq(Binding("helper", "xitrum.Action", true))
     )),
 
-    libraryDependencies += "tv.cntt" %% "xitrum-scalate" % "2.4"
+    libraryDependencies += "tv.cntt" %% "xitrum-scalate" % "2.5"
   )
 
   override lazy val settings = super.settings ++ XitrumPackage.skip

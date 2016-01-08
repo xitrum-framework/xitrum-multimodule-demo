@@ -8,7 +8,7 @@ object XitrumMultimoduleDemoBuild extends Build {
   val sharedSettings = Project.defaultSettings ++ Seq(
     organization := "tv.cntt",
     version      := "1.0-SNAPSHOT",
-    scalaVersion := "2.11.6",
+    scalaVersion := "2.11.7",
 
     scalacOptions ++= Seq("-deprecation", "-feature", "-unchecked"),
 
@@ -17,7 +17,7 @@ object XitrumMultimoduleDemoBuild extends Build {
 
     //--------------------------------------------------------------------------
 
-    libraryDependencies += "tv.cntt" %% "xitrum" % "3.25.0",
+    libraryDependencies += "tv.cntt" %% "xitrum" % "3.26.0",
 
     // Xitrum uses SLF4J, an implementation of SLF4J is needed
     libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.1.3",

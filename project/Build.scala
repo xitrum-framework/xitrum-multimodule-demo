@@ -8,8 +8,8 @@ object XitrumMultimoduleDemoBuild extends Build {
   val sharedSettings = Project.defaultSettings ++ Seq(
     organization := "tv.cntt",
     version      := "1.0-SNAPSHOT",
-    scalaVersion := "2.11.7",
 
+    scalaVersion := "2.11.8",
     scalacOptions ++= Seq("-deprecation", "-feature", "-unchecked"),
 
     // Xitrum requires Java 7
@@ -17,10 +17,10 @@ object XitrumMultimoduleDemoBuild extends Build {
 
     //--------------------------------------------------------------------------
 
-    libraryDependencies += "tv.cntt" %% "xitrum" % "3.26.0",
+    libraryDependencies += "tv.cntt" %% "xitrum" % "3.26.1",
 
     // Xitrum uses SLF4J, an implementation of SLF4J is needed
-    libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.1.3",
+    libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.1.7",
 
     // For writing condition in logback.xml
     libraryDependencies += "org.codehaus.janino" % "janino" % "2.7.8",
@@ -36,7 +36,7 @@ object XitrumMultimoduleDemoBuild extends Build {
     ScalateKeys.scalateTemplateConfig in Compile := Seq(TemplateConfig(
       baseDirectory.value / "src" / "main" / "scalate",
       Seq.empty,
-      Seq(Binding("helper", "xitrum.Action", true))
+      Seq(Binding("helper", "xitrum.Action", importMembers = true))
     )),
 
     libraryDependencies += "tv.cntt" %% "xitrum-scalate" % "2.5"
@@ -60,8 +60,8 @@ object XitrumMultimoduleDemoBuild extends Build {
 
       // Put config directory in classpath for easier development,
       // for "sbt console" and "sbt run" respectively
-      unmanagedClasspath in Compile <+= (baseDirectory) map { bd => Attributed.blank(bd / "config") },
-      unmanagedClasspath in Runtime <+= (baseDirectory) map { bd => Attributed.blank(bd / "config") }
+      unmanagedClasspath in Compile <+= baseDirectory map { bd => Attributed.blank(bd / "config") },
+      unmanagedClasspath in Runtime <+= baseDirectory map { bd => Attributed.blank(bd / "config") }
     ) ++ XitrumPackage.copy("config", "public", "script")
   ).dependsOn(module1)
 }

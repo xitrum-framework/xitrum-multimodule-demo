@@ -17,7 +17,7 @@ object XitrumMultimoduleDemoBuild extends Build {
 
     //--------------------------------------------------------------------------
 
-    libraryDependencies += "tv.cntt" %% "xitrum" % "3.26.1",
+    libraryDependencies += "tv.cntt" %% "xitrum" % "3.26.2",
 
     // Xitrum uses SLF4J, an implementation of SLF4J is needed
     libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.1.7",

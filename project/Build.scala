@@ -17,7 +17,7 @@ object XitrumMultimoduleDemoBuild extends Build {
 
     //--------------------------------------------------------------------------
 
-    libraryDependencies += "tv.cntt" %% "xitrum" % "3.26.2",
+    libraryDependencies += "tv.cntt" %% "xitrum" % "3.27.0",
 
     // Xitrum uses SLF4J, an implementation of SLF4J is needed
     libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.1.7",
@@ -32,14 +32,14 @@ object XitrumMultimoduleDemoBuild extends Build {
   )
 
   lazy val templateSettings = scalateSettings ++ Seq(
+    libraryDependencies += "tv.cntt" %% "xitrum-scalate" % "2.6.0",
+
     // Precompile Scalate templates
     ScalateKeys.scalateTemplateConfig in Compile := Seq(TemplateConfig(
       baseDirectory.value / "src" / "main" / "scalate",
       Seq.empty,
       Seq(Binding("helper", "xitrum.Action", importMembers = true))
-    )),
-
-    libraryDependencies += "tv.cntt" %% "xitrum-scalate" % "2.5"
+    ))
   )
 
   override lazy val settings = super.settings ++ XitrumPackage.skip

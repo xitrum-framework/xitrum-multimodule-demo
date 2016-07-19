@@ -32,7 +32,7 @@ object XitrumMultimoduleDemoBuild extends Build {
   )
 
   lazy val templateSettings = scalateSettings ++ Seq(
-    libraryDependencies += "tv.cntt" %% "xitrum-scalate" % "2.6.0",
+    libraryDependencies += "tv.cntt" %% "xitrum-scalate" % "2.6.1",
 
     // Precompile Scalate templates
     ScalateKeys.scalateTemplateConfig in Compile := Seq(TemplateConfig(

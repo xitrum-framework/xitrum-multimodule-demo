@@ -7,7 +7,7 @@ import ScalateKeys._
 object XitrumMultimoduleDemoBuild extends Build {
   val sharedSettings = Project.defaultSettings ++ Seq(
     organization := "tv.cntt",
-    version      := "1.0-SNAPSHOT",
+    version      := "1.0.0-SNAPSHOT",
 
     scalaVersion := "2.11.8",
     scalacOptions ++= Seq("-deprecation", "-feature", "-unchecked"),
@@ -17,13 +17,13 @@ object XitrumMultimoduleDemoBuild extends Build {
 
     //--------------------------------------------------------------------------
 
-    libraryDependencies += "tv.cntt" %% "xitrum" % "3.27.0",
+    libraryDependencies += "tv.cntt" %% "xitrum" % "3.28.0",
 
     // Xitrum uses SLF4J, an implementation of SLF4J is needed
     libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.1.7",
 
     // For writing condition in logback.xml
-    libraryDependencies += "org.codehaus.janino" % "janino" % "2.7.8",
+    libraryDependencies += "org.codehaus.janino" % "janino" % "3.0.0",
 
     // xgettext i18n translation key string extractor is a compiler plugin -----
     autoCompilerPlugins := true,
@@ -32,7 +32,7 @@ object XitrumMultimoduleDemoBuild extends Build {
   )
 
   lazy val templateSettings = scalateSettings ++ Seq(
-    libraryDependencies += "tv.cntt" %% "xitrum-scalate" % "2.6.1",
+    libraryDependencies += "tv.cntt" %% "xitrum-scalate" % "2.7.0",
 
     // Precompile Scalate templates
     ScalateKeys.scalateTemplateConfig in Compile := Seq(TemplateConfig(

@@ -1,11 +1,11 @@
 import sbt._
 import Keys._
 
-import com.mojolly.scalate.ScalatePlugin._
+import org.fusesource.scalate.ScalatePlugin._
 import ScalateKeys._
 
 object XitrumMultimoduleDemoBuild extends Build {
-  val sharedSettings = Project.defaultSettings ++ Seq(
+  val sharedSettings = Defaults.coreDefaultSettings ++ Seq(
     organization := "tv.cntt",
     version      := "1.0.0-SNAPSHOT",
 
@@ -17,22 +17,22 @@ object XitrumMultimoduleDemoBuild extends Build {
 
     //--------------------------------------------------------------------------
 
-    libraryDependencies += "tv.cntt" %% "xitrum" % "3.28.1",
+    libraryDependencies += "tv.cntt" %% "xitrum" % "3.28.2",
 
     // Xitrum uses SLF4J, an implementation of SLF4J is needed
-    libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.1.7",
+    libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.1.8",
 
     // For writing condition in logback.xml
     libraryDependencies += "org.codehaus.janino" % "janino" % "3.0.6",
 
     // xgettext i18n translation key string extractor is a compiler plugin -----
     autoCompilerPlugins := true,
-    addCompilerPlugin("tv.cntt" %% "xgettext" % "1.3"),
+    addCompilerPlugin("tv.cntt" %% "xgettext" % "1.5.0"),
     scalacOptions += "-P:xgettext:xitrum.I18n"
   )
 
   lazy val templateSettings = scalateSettings ++ Seq(
-    libraryDependencies += "tv.cntt" %% "xitrum-scalate" % "2.7.0",
+    libraryDependencies += "tv.cntt" %% "xitrum-scalate" % "2.7.1",
 
     // Precompile Scalate templates
     ScalateKeys.scalateTemplateConfig in Compile := Seq(TemplateConfig(
@@ -60,8 +60,8 @@ object XitrumMultimoduleDemoBuild extends Build {
 
       // Put config directory in classpath for easier development,
       // for "sbt console" and "sbt run" respectively
-      unmanagedClasspath in Compile <+= baseDirectory map { bd => Attributed.blank(bd / "config") },
-      unmanagedClasspath in Runtime <+= baseDirectory map { bd => Attributed.blank(bd / "config") }
+      unmanagedClasspath in Compile += Attributed.blank(baseDirectory.value / "config"),
+      unmanagedClasspath in Runtime += Attributed.blank(baseDirectory.value / "config")
     ) ++ XitrumPackage.copy("config", "public", "script")
   ).dependsOn(module1)
 }

@@ -4,7 +4,7 @@ Run:
 
 ::
 
-  sbt/sbt "project app" run
+  sbt/sbt "project app" fgRun
 
 The project is devided into 2 parts:
 

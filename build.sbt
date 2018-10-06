@@ -4,7 +4,7 @@ val sharedSettings = Seq(
   organization := "tv.cntt",
   version      := "1.0.0-SNAPSHOT",
 
-  scalaVersion := "2.12.6",
+  scalaVersion := "2.12.7",
   scalacOptions ++= Seq("-deprecation", "-feature", "-unchecked"),
 
   // Xitrum requires Java 8
@@ -12,13 +12,13 @@ val sharedSettings = Seq(
 
   //--------------------------------------------------------------------------
 
-  libraryDependencies += "tv.cntt" %% "xitrum" % "3.28.11",
+  libraryDependencies += "tv.cntt" %% "xitrum" % "3.28.12",
 
   // Xitrum uses SLF4J, an implementation of SLF4J is needed
   libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.2.3",
 
   // For writing condition in logback.xml
-  libraryDependencies += "org.codehaus.janino" % "janino" % "3.0.9",
+  libraryDependencies += "org.codehaus.janino" % "janino" % "3.0.10",
 
   // xgettext i18n translation key string extractor is a compiler plugin -----
   autoCompilerPlugins := true,
@@ -31,7 +31,7 @@ lazy val templateSettings = scalateSettings ++ Seq(
 
   // Precompile Scalate templates
   ScalateKeys.scalateTemplateConfig in Compile := Seq(TemplateConfig(
-    baseDirectory.value / "src" / "main" / "scalate",
+    (sourceDirectory in Compile).value / "scalate",
     Seq.empty,
     Seq(Binding("helper", "xitrum.Action", importMembers = true))
   ))

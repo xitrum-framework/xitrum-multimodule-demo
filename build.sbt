@@ -4,7 +4,7 @@ val sharedSettings = Seq(
   organization := "tv.cntt",
   version      := "1.0.0-SNAPSHOT",
 
-  scalaVersion := "2.12.8",
+  scalaVersion := "2.12.9",
   scalacOptions ++= Seq("-deprecation", "-feature", "-unchecked"),
 
   // Xitrum requires Java 8
@@ -12,13 +12,13 @@ val sharedSettings = Seq(
 
   //--------------------------------------------------------------------------
 
-  libraryDependencies += "tv.cntt" %% "xitrum" % "3.28.17",
+  libraryDependencies += "tv.cntt" %% "xitrum" % "3.28.18",
 
   // Xitrum uses SLF4J, an implementation of SLF4J is needed
   libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.2.3",
 
   // For writing condition in logback.xml
-  libraryDependencies += "org.codehaus.janino" % "janino" % "3.0.12",
+  libraryDependencies += "org.codehaus.janino" % "janino" % "3.1.0",
 
   // xgettext i18n translation key string extractor is a compiler plugin -----
   autoCompilerPlugins := true,

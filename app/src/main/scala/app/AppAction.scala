@@ -5,7 +5,7 @@ import xitrum.annotation.GET
 
 @GET("")
 class AppAction extends Action {
-  def execute() {
+  def execute(): Unit = {
     respondViewNoLayout()
   }
 }

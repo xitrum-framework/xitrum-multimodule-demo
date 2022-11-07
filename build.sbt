@@ -12,7 +12,7 @@ val sharedSettings = Seq(
 
   //--------------------------------------------------------------------------
 
-  libraryDependencies += "tv.cntt" %% "xitrum" % "3.30.1",
+  libraryDependencies += "tv.cntt" %% "xitrum" % "3.30.2",
 
   // Xitrum uses SLF4J, an implementation of SLF4J is needed
   libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.2.3",
@@ -30,8 +30,8 @@ lazy val templateSettings = scalateSettings ++ Seq(
   libraryDependencies += "tv.cntt" %% "xitrum-scalate" % "2.9.2",
 
   // Precompile Scalate templates
-  ScalateKeys.scalateTemplateConfig in Compile := Seq(TemplateConfig(
-    (sourceDirectory in Compile).value / "scalate",
+  Compile / ScalateKeys.scalateTemplateConfig := Seq(TemplateConfig(
+    (Compile / sourceDirectory).value / "scalate",
     Seq.empty,
     Seq(Binding("helper", "xitrum.Action", importMembers = true))
   ))
@@ -50,7 +50,9 @@ lazy val app = (project in file("app")).settings(
 
   // Put config directory in classpath for easier development,
   // for "sbt console" and "sbt fgRun" respectively
-  unmanagedClasspath in Compile += baseDirectory.value / "config",
-  unmanagedClasspath in Runtime += baseDirectory.value / "config",
-  XitrumPackage.copy("config", "public", "script")
+  Compile / unmanagedClasspath += baseDirectory.value / "config",
+  Runtime / unmanagedClasspath += baseDirectory.value / "config",
+  XitrumPackage.copy("config", "public", "script"),
+
+  Seq(fork := true)
 ).dependsOn(module1)

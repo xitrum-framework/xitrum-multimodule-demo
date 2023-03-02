@@ -12,7 +12,7 @@ val sharedSettings = Seq(
 
   //--------------------------------------------------------------------------
 
-  libraryDependencies += "tv.cntt" %% "xitrum" % "3.30.2",
+  libraryDependencies += "tv.cntt" %% "xitrum" % "3.31.0",
 
   // Xitrum uses SLF4J, an implementation of SLF4J is needed
   libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.2.3",
